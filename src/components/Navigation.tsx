@@ -25,11 +25,11 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      isScrolled ? 'bg-white/98 backdrop-blur-md shadow-lg border-b border-gray-200' : 'bg-white/95 backdrop-blur-md shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-semibold text-foreground hover:text-primary transition-colors">
+          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition-colors">
             JD
           </Link>
 
@@ -39,10 +39,10 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-colors hover:text-black ${
                   location.pathname === item.path
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
+                    ? 'text-black font-semibold'
+                    : 'text-gray-600'
                 }`}
               >
                 {item.label}
@@ -53,7 +53,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-black hover:text-gray-700 transition-colors"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -61,17 +61,17 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg">
             <div className="px-6 py-4 space-y-3">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block text-sm font-medium transition-colors hover:text-primary ${
+                  className={`block text-sm font-medium transition-colors hover:text-black ${
                     location.pathname === item.path
-                      ? 'text-primary'
-                      : 'text-muted-foreground'
+                      ? 'text-black font-semibold'
+                      : 'text-gray-600'
                   }`}
                 >
                   {item.label}
